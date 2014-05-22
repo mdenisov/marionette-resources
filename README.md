@@ -10,12 +10,12 @@ resources = {
         root  : true
       , url   : function () { return "games"; }
       , path  : _.template("#games")
-      , action: function () { new GamesApp.List.Controller(); }
+      , action: function () { /*...*/ }
     }
   , "game": {
       , url   : function () { return "games/:id"; }
       , path  : _.template("#games/<%= id %>")
-      , action: function (id) { new GamesApp.Show.Controller({id: id}); }
+      , action: function (id) { /*...*/ }
     }
 };
 ```
@@ -67,13 +67,13 @@ router = new Marionette.AppRouter({
     "edit_game": {
           url   : function () { return "games/:id/edit"; }
         , path  : _.template("#games/<%= id %>/edit")
-        , action: function (id) { new GamesApp.Edit.Controller({id: id}); }
+        , action: function (id) { /* do edit stuff */ }
       }
   }
 });
 
 router.appRoutes  // => {"games/:id/edit": "edit_game"}
-router.controller // => {"edit_game": function (id) { new GamesApp.Edit.Controller({id: id}); }}
+router.controller // => {"edit_game": function (id) { /* do edit stuff */ }}
 App.getPath("edit_game", {id: 1}); // => "#games/1/edit"
 ```
 
@@ -81,14 +81,14 @@ App.getPath("edit_game", {id: 1}); // => "#games/1/edit"
 Yes.
 ```js
 App = new Marionette.Application();
-App.addRegions({"region": "#region"});
-
 new Marionette.AppRouter({
   appResources: {
     "new_game": {
-        action: function (region) { new GamesApp.New.Controller({region: region}); }
+        action: function (region) { /* do new stuff */ }
     }
   }
 });
 
+App.addRegions({"region": "#region"});
 App.render("new_game", App.region);
+```
