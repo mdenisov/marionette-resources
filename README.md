@@ -19,7 +19,8 @@ resources = {
 Using resources decouples the route components from the app, controllers, views:
 
 ```js
-// Use Marionette.Resources API via App object...
+// Use Resources Application API...
+App = new Marionette.Application();
 App.on("start", function () {
   Backbone.history.start();
   if (!Backbone.history.fragment) {
@@ -28,6 +29,7 @@ App.on("start", function () {
 });
     
 // Instead of referring to routes directly...
+App = new Marionette.Application();
 App.on("start", function () {
   Backbone.history.start();
   if (!Backbone.history.fragment) {
@@ -37,4 +39,9 @@ App.on("start", function () {
     });
   }
 });
+```
+...and from templates:
+
+```js
+// Use Resources Template Helpers API...
 ```
