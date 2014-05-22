@@ -78,7 +78,7 @@ App.getPath("edit_game", {id: 1}); // => "#games/1/edit"
 ```
 
 ###Can I create non-routable resources?###
-Yes.
+Yes. In the case where a resource does not need to be routable, define it with only an action method.
 ```js
 App = new Marionette.Application();
 new Marionette.AppRouter({
@@ -89,6 +89,7 @@ new Marionette.AppRouter({
   }
 });
 
+// Add a region to the app and render a "new_game" in it.
 App.addRegions({"region": "#region"});
 App.render("new_game", App.region);
 ```
