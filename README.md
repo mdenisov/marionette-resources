@@ -58,7 +58,7 @@ new Marionette.AppRouter({
 
 ```
 
-Instantiating the `AppRouter` will expose the `appResources` to the Resources APIs and automatically configure the routes. Each resource that contains both url and action methods will generate a route.
+Instantiating the `Marionette.AppRouter` will expose the `appResources` to the `Marionette.Resources` APIs and automatically configure the routes. Each resource that contains both `url` and `action` methods will generate a route.
 
 ```js
 router = new Marionette.AppRouter({
