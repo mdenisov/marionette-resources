@@ -1,9 +1,8 @@
 marionette-resources
 ====================
 
-###What is a resource?###
-
-A resource contains information about a route and or action.
+###What are resources?###
+Resources contain information about routes and actions.
 
 ```js
 resources = {
@@ -16,5 +15,6 @@ resources = {
 };
 ```
 
-###Adding resources###
+###Why use resources?###
+
 
