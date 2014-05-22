@@ -62,6 +62,7 @@ Instantiating the `Marionette.AppRouter` will expose the `appResources` to the R
 
 ```js
 App    = new Marionette.Application();
+
 router = new Marionette.AppRouter({
   appResources: {
     "edit_game": {
