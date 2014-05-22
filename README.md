@@ -67,13 +67,13 @@ router = new Marionette.AppRouter({
     "edit_game": {
           url   : function () { return "games/:id/edit"; }
         , path  : _.template("#games/<%= id %>/edit")
-        , action: function (id) { /* do edit stuff */ }
+        , action: function (id) { /* ... */ }
       }
   }
 });
 
 router.appRoutes  // => {"games/:id/edit": "edit_game"}
-router.controller // => {"edit_game": function (id) { /* do edit stuff */ }}
+router.controller // => {"edit_game": function (id) { /* ... */ }}
 App.getPath("edit_game", {id: 1}); // => "#games/1/edit"
 ```
 
@@ -84,7 +84,7 @@ App = new Marionette.Application();
 new Marionette.AppRouter({
   appResources: {
     "new_game": {
-        action: function (region) { /* do new stuff */ }
+        action: function (region) { /* ... */ }
     }
   }
 });
