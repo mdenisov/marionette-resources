@@ -16,5 +16,5 @@ resources = {
 ```
 
 ###Why use resources?###
-
+Using resources allows you to keep route strings out of your controllers, views, templates, etc.
 
