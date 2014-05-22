@@ -15,7 +15,7 @@ resources = {
   , "game": {
       , url   : function () { return "games/:id"; }
       , path  : _.template("#games/<%= id %>")
-      , action: function (id) { new GamesApp.Show.Controller({id:id}); }
+      , action: function (id) { new GamesApp.Show.Controller({id: id}); }
     }
 };
 ```
@@ -41,3 +41,19 @@ Backbone.history.navigate("games/1", {trigger: true});
 <!-- Instead of referring to route directly... -->
 <a href="#games/1">Show game 1</a>
 ```
+
+###How do I use resources?###
+Adding resources to Marionette.Resources makes them available to the Application and Template Helper APIs.
+
+```js
+Marionette.Resources.add({
+  "edit_game": {
+      url   : function () { return "#games/:id/edit"; }
+    , path  : _.template("#games/<%= id %>/edit")
+    , action: function (id) { new GamesApp.Edit.Controller({id: id});
+});
+
+App = new Marionette.Application();
+App.getPath("edit_game", {id: 1}); // => "#games/1/edit
+```
+
