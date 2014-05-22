@@ -43,4 +43,4 @@ Backbone.history.navigate("games/1", {trigger: true});
 ```
 
 ###How do I use resources?###
-Resources need to be added to `Marionette.Resources` in order to expose them to the APIs. This can be done by passing them to the `Marionette.Resources.add` method.
+Resources need to be added to `Marionette.Resources` in order to expose them to the APIs. This can be done by passing them to the `Marionette.Resources.add` method or adding them to an AppRouter. Adding resources to the AppRouter will also configure the routes on instantiation.
