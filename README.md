@@ -21,24 +21,11 @@ Using resources decouples the route components from the app, controllers, views:
 ```js
 // Use Resources Application API...
 App = new Marionette.Application();
-App.on("start", function () {
-  Backbone.history.start();
-  if (!Backbone.history.fragment) {
-    App.redirectToRoot({}, {replace: true});
-  }
-});
+App.redirectTo("game", {id: 1});
     
 // Instead of referring to routes directly...
 App = new Marionette.Application();
-App.on("start", function () {
-  Backbone.history.start();
-  if (!Backbone.history.fragment) {
-    Backbone.history.navigate("games", {
-      trigger: true,
-      replace: true
-    });
-  }
-});
+Backbone.history.navigate("games/1", {trigger: true});
 ```
 ...and from templates:
 
