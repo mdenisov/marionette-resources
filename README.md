@@ -43,37 +43,18 @@ Backbone.history.navigate("games/1", {trigger: true});
 ```
 
 ###How do I use resources?###
-Resources need to be added to `Marionette.Resources` in order to expose them to the APIs. This can be done by passing them to the `Marionette.Resources.add` method or adding them to an AppRouter. Adding resources to the AppRouter will also configure the routes on instantiation. Resources with both url and action methods parsed into routes.
-
+Add resources to a Marionette.AppRouter class or instance with the name "appResources".
 ```js
-// Add resources to the "appResources" property of the AppRouter.
+// Add appResources to an AppRouter class
 Router = Marionette.AppRouter.extend({
-  appResources: {
-      "games": {
-          root  : true
-        , url   : function () { return "games"; }
-        , path  : _.template("#games")
-        , action: function () { new GamesApp.List.Controller(); }
-      }
-    , "game": {
-        , url   : function () { return "games/:id"; }
-        , path  : _.template("#games/<%= id %>")
-        , action: function (id) { new GamesApp.Show.Controller({id: id}); }
-      }
-  }
+  appResources: { /*...*/ }
 });
 
-// Instantiate the router to configure the routes using the resources.
-router = new Router();
+// ...or instance
+new Marionette.AppRouter({
+  appResources: { /*...*/ }
+});
 
-// Generated appRoutes using resource name and url method.
-router.appRoutes["games"]     // => "games"
-router.appRoutes["games/:id"] // => "game"
-
-
-// Generated controller using resource name and action method.
-router.controller["games"] // => function () { new GamesApp.List.Controller(); }
-router.controller["game"]  // => function (id) { new GamesApp.Show.Controller({id: id}); }
 ```
     
         
