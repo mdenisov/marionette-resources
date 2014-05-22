@@ -77,5 +77,5 @@ router.controller // => {"edit_game": function (id) { new GamesApp.Edit.Controll
 App.getPath("edit_game", {id: 1}); // => "#games/1/edit"
 ```
 
-###Can I create not-routable resources?###
+###Can I create non-routable resources?###
 Yes.
