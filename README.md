@@ -43,17 +43,4 @@ Backbone.history.navigate("games/1", {trigger: true});
 ```
 
 ###How do I use resources?###
-Adding resources to Marionette.Resources makes them available to the Application and Template Helper APIs.
-
-```js
-Marionette.Resources.add({
-  "edit_game": {
-      url   : function () { return "#games/:id/edit"; }
-    , path  : _.template("#games/<%= id %>/edit")
-    , action: function (id) { new GamesApp.Edit.Controller({id: id});
-});
-
-App = new Marionette.Application();
-App.getPath("edit_game", {id: 1}); // => "#games/1/edit
-```
 
