@@ -67,18 +67,13 @@ Router = Marionette.AppRouter.extend({
 router = new Router();
 
 // Generated appRoutes using resource name and url method.
-router.appRoutes // =>
-//  {
-//      "games"    : "games"
-//    , "games/:id": "game"
-//  }
+router.appRoutes["games"]     // => "games"
+router.appRoutes["games/:id"] // => "game"
+
 
 // Generated controller using resource name and action method.
-router.controller // =>
-//  {
-//      "games": function () { new GamesApp.List.Controller(); }
-//    , "game" : function (id) { new GamesApp.Show.Controller({id: id}); }
-//  }
+router.controller["games"] // => function () { new GamesApp.List.Controller(); }
+router.controller["game"]  // => function (id) { new GamesApp.Show.Controller({id: id}); }
 ```
     
         
