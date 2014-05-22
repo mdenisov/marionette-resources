@@ -16,5 +16,25 @@ resources = {
 ```
 
 ###Why use resources?###
-Using resources allows you to keep route strings out of your controllers, views, templates, etc.
+Using resources decouples the route components from the app, controllers, views:
 
+```js
+// Use Marionette.Resources API via App object...
+App.on("start", function () {
+  Backbone.history.start();
+  if (!Backbone.history.fragment) {
+    App.redirectToRoot({}, {replace: true});
+  }
+});
+    
+// Instead of referring to routes directly...
+App.on("start", function () {
+  Backbone.history.start();
+  if (!Backbone.history.fragment) {
+    Backbone.history.navigate("games", {
+      trigger: true,
+      replace: true
+    });
+  }
+});
+```
