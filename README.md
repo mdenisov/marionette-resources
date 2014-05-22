@@ -2,7 +2,7 @@ marionette-resources
 ====================
 
 ###What are resources?###
-Resources contain information about routes and actions.
+Resources are named sets of route components.
 
 ```js
 resources = {
