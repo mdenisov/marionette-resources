@@ -21,7 +21,7 @@ resources = {
 ```
 
 ###Why use resources?###
-Using resources decouples the route components from the app, controllers, views:
+Using resources decouples the route components from the application, controllers, views:
 
 ```js
 // Use Marionette.Resources Application API
@@ -43,7 +43,7 @@ Backbone.history.navigate("games/1", {trigger: true});
 ```
 
 ###How do I use resources?###
-Add resources to a Marionette.AppRouter class or instance with the name "appResources".
+Add resources to a `Marionette.AppRouter` class or instance with the name "appResources".
 
 ```js
 // Add resources to an AppRouter class
@@ -58,7 +58,7 @@ new Marionette.AppRouter({
 
 ```
 
-Instantiating the App router will expose the `appResources` to the Resources APIs and automatically configure the routes. Each resource that contains both url and action methods will generate a route.
+Instantiating the `AppRouter` will expose the `appResources` to the Resources APIs and automatically configure the routes. Each resource that contains both url and action methods will generate a route.
 
 ```js
 router = new Marionette.AppRouter({
