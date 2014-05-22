@@ -35,12 +35,9 @@ Backbone.history.navigate("games/1", {trigger: true});
 ...and templates:
 
 ```html
-// Use Resources Template Helpers API...
+<!-- Use Resources Template Helpers API... -->
 <a href="<%= getPath(id) %>">Show game</a>
 
-// Or...
-<%= linkTo("Show game", "game", {id: id} %>
-
-// Instead of referring to route directly...
+<!-- Instead of referring to route directly... -->
 <a href="#games/<%= id %>">Show game</a>
 ```
