@@ -61,25 +61,19 @@ new Marionette.AppRouter({
 Instantiating the `Marionette.AppRouter` will expose the `appResources` to the Resource APIs and automatically configure the routes. Each resource that contains both `url` and `action` methods will generate a route.
 
 ```js
+App    = new Marionette.Application();
 router = new Marionette.AppRouter({
   appResources: {
-      "games": {
-          root  : true
-        , url   : function () { return "games"; }
-        , path  : _.template("#games")
-        , action: function () { new GamesApp.List.Controller(); }
-      }
-    , "game": {
-        , url   : function () { return "games/:id"; }
-        , path  : _.template("#games/<%= id %>")
-        , action: function (id) { new GamesApp.Show.Controller({id: id}); }
+    "edit_game": {
+          url   : function () { return "games/:id/edit"; }
+        , path  : _.template("#games/<%= id %>/edit")
+        , action: function (id) { new GamesApp.Edit.Controller({id: id}); }
       }
   }
 });
 
-router.appRoutes["games"]     // => "games"
-router.appRoutes["games/:id"] // => "game"
+router.appRoutes  // => {"games/:id/edit": "edit_game"}
+router.controller // => {"edit_game": function (id) { new GamesApp.Edit.Controller({id: id}); }}
 
-router.controller["games"]    // => function () { new GamesApp.List.Controller(); }
-router.controller["game"]     // => function (id) { new GamesApp.Show.Controller({id: id}); }
+App.getPath("game", {id: 1}); // => "#games/1/edit"
 ```
