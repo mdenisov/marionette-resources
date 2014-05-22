@@ -75,5 +75,5 @@ router = new Marionette.AppRouter({
 router.appRoutes  // => {"games/:id/edit": "edit_game"}
 router.controller // => {"edit_game": function (id) { new GamesApp.Edit.Controller({id: id}); }}
 
-App.getPath("game", {id: 1}); // => "#games/1/edit"
+App.getPath("edit_game", {id: 1}); // => "#games/1/edit"
 ```
