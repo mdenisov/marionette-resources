@@ -34,7 +34,7 @@ Backbone.history.navigate("games/1", {trigger: true});
 ```
 ...and templates:
 
-```js
+```html
 // Use Resources Template Helpers API...
 <a href="<%= getPath(id) %>">Show game</a>
 
