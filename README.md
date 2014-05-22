@@ -6,12 +6,17 @@ Resources are named sets of route components.
 
 ```js
 resources = {
-  "games": {
-      root  : true
-    , url   : function () { return "games"; }
-    , path  : _.template("#games")
-    , action: function () { new GamesApp.List.Controller(); }
-  }
+    "games": {
+        root  : true
+      , url   : function () { return "games"; }
+      , path  : _.template("#games")
+      , action: function () { new GamesApp.List.Controller(); }
+    }
+  , "game": {
+      , url   : function () { return "games/:id"; }
+      , path  : _.template("#games/<%= id %>")
+      , action: function (id) { new GamesApp.Show.Controller({id:id}); }
+    }
 };
 ```
 
