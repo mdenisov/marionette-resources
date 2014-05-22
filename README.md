@@ -44,6 +44,7 @@ Backbone.history.navigate("games/1", {trigger: true});
 
 ###How do I use resources?###
 Add resources to a Marionette.AppRouter class or instance with the name "appResources".
+
 ```js
 // Add resources to an AppRouter class
 Router = Marionette.AppRouter.extend({
@@ -56,5 +57,29 @@ new Marionette.AppRouter({
 });
 
 ```
-    
-        
+
+Instantiating the AppRouter will expose the `appResources` to the Resources APIs and automatically configure the routes. Each resource that contains both url and action methods will generate a route.
+
+```js
+resources = {
+    "games": {
+        root  : true
+      , url   : function () { return "games"; }
+      , path  : _.template("#games")
+      , action: function () { new GamesApp.List.Controller(); }
+    }
+  , "game": {
+      , url   : function () { return "games/:id"; }
+      , path  : _.template("#games/<%= id %>")
+      , action: function (id) { new GamesApp.Show.Controller({id: id}); }
+    }
+};
+
+router = new Marionette.AppRouter({appResources: resources});
+
+router.appRoutes["games"]     // => "games"
+router.appRoutes["games/:id"] // => "game"
+
+router.controller["games"]    // => function () { new GamesApp.List.Controller(); }
+router.controller["game"]     // => function (id) { new GamesApp.Show.Controller({id: id}); }
+```
